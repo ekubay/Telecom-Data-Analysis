@@ -51,16 +51,11 @@ class DataFrame_Info():
     print(f"Dataframe contains null values of { percentage }% out of the given dataset")
 
 
-#   def get_columns_list(self):
-#     '''
-#     Return Column list of the Dataframe
-#     '''
-#     return self.df.columns.to_list()
+  def get_columns_list(self):
+    '''
+    Return Column list of the Dataframe
+    '''
+    return self.df.columns.to_list()
 
-
-#   def get_null_counts(self):
-#     '''
-#     Display Null Counts of each column
-#     '''
-
-#     print(self.df.isnull().sum())
+  def null_counts(self):
+    print(self.df.isnull().sum())
