@@ -8,7 +8,7 @@ sys.path.insert(0, './tests')
 import pandas as pd
 import streamlit as st
 from streamlit_option_menu import option_menu 
-st.set_page_config(page_title='Telecommunication Data Analysis', page_icon=None, layout="wide", 
+st.set_page_config(page_title='Telecommunication Data Analysis1', page_icon=None, layout="centered", 
 initial_sidebar_state="auto", menu_items=None)
 # the pages
 import pages.main as main1
@@ -17,8 +17,8 @@ from pages.user_overview_analysis import OverviewAnalysis
 #from pages.user_expriance_analysis import exprianceAnalysis
 #from pages.user_satisfuction_analysis import satisfactionAnalysis
 
-st.title("Telecomunication Data analysis")
-st.sidebar.markdown("# Tellcomunication Data Analysis")
+#st.title("Telecomunication Data analysis2")
+#st.sidebar.markdown("# Tellcomunication Data Analysis")
 #page = st.sidebar.selectbox('TellCo Menu', ['Intro', 'Marketing', 'Engagement', 'Experiance', 'Satisfaction'])
 with st.sidebar:
   #'Engagement', 'Experience', 'Satisfaction'
