@@ -13,53 +13,6 @@ from script.info_df import DataFrame_Info
 files1 = "./tests/clean_df_tel1.csv"   #put here the path to where you placed the file e.g. ./sampletweets.json. 
 df = pd.read_csv(files1)
 
-dataset_columns = [
-            'Bearer Id', 
-            'Start', 
-            'Start ms', 
-            'End', 
-            'End ms', 
-            'Dur. (ms)', 
-            'IMSI',
-            'MSISDN/Number',
-            'IMEI', 
-            'Last Location Name', 
-            'Avg RTT DL (ms)',
-            'Avg RTT UL (ms)', 
-            'Avg Bearer TP DL (kbps)', 
-            'Avg Bearer TP UL (kbps)',
-            'DL TP < 50 Kbps (%)',
-            '50 Kbps < DL TP < 250 Kbps (%)',
-            '250 Kbps < DL TP < 1 Mbps (%)', 
-            'DL TP > 1 Mbps (%)',
-            'UL TP < 10 Kbps (%)', 
-            '10 Kbps < UL TP < 50 Kbps (%)',
-            '50 Kbps < UL TP < 300 Kbps (%)', 
-            'UL TP > 300 Kbps (%)',
-            'Activity Duration DL (ms)', 
-            'Activity Duration UL (ms)', 
-            'Dur. (ms).1',
-            'Handset Manufacturer', 
-            'Handset Type', 
-            'Nb of sec with Vol DL < 6250B',
-            'Nb of sec with Vol UL < 1250B', 
-            'Social Media DL (Bytes)',
-            'Social Media UL (Bytes)', 
-            'Google DL (Bytes)', 
-            'Google UL (Bytes)',
-            'Email DL (Bytes)', 
-            'Email UL (Bytes)', 
-            'Youtube DL (Bytes)',
-            'Youtube UL (Bytes)', 
-            'Netflix DL (Bytes)', 
-            'Netflix UL (Bytes)',
-            'Gaming DL (Bytes)', 
-            'Gaming UL (Bytes)', 
-            'Other DL (Bytes)',
-            'Other UL (Bytes)', 
-            'Total UL (Bytes)', 
-            'Total DL (Bytes)'
-        ]
 
 class TestDataFrame_Info(unittest.TestCase):
     """
