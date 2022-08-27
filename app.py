@@ -2,7 +2,7 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join('..')))
-sys.path.insert(0, './pages')
+#sys.path.insert(0, './pages')
 sys.path.insert(0, './tests')
 #import numpy as np
 import pandas as pd
@@ -21,8 +21,11 @@ import dashboard.user_satisfuction_analysis as satisfy
 #st.sidebar.markdown("# Tellcomunication Data Analysis")
 #page = st.sidebar.selectbox('TellCo Menu', ['Intro', 'Marketing', 'Engagement', 'Experiance', 'Satisfaction'])
 with st.sidebar:
+<<<<<<< HEAD
+=======
   #'Engagement', 'Experience', 'Satisfaction'
    #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
+>>>>>>> 4ebdc20d68cf3cc3376168af8779128e5214371e
   page = option_menu('Menu', ['Main', 'Overview','Engagement', 'Experience', 'Satisfaction'],
                             icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
                             'bi-check-square-fill'], menu_icon="cast", default_index=1)
