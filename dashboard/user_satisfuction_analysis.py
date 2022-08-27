@@ -1,8 +1,3 @@
-#System Modules
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join('..')))
-# packages
 import pandas as pd
 import streamlit as st
 import seaborn as sns
@@ -18,7 +13,7 @@ from sklearn.preprocessing import StandardScaler
 #User Statisfaction Analysis
 def run_satisfaction():
   st.write("## Satisfaction Analysis")
-  file_name = 'data/clean_telecommunication_data.csv'
+  file_name = 'data/clean_df_tel1.csv'
   data = pd.read_csv(file_name)
   #Aggregate per user the following information in the column
   df_clean = data.copy()
@@ -44,9 +39,9 @@ def run_satisfaction():
     percentage = round((null_size / df_size) * 100, 2)
     return percentage
   #Read the cleaned csv file and store it on data
-  #file_name = 'data/Week1_challenge_data_source.csv'
-  data = pd.read_csv('clean_df_tel1.csv')
-  df_task_3 = pd.read_csv('clean_df_tel1.csv')
+  file_name = 'data/tel-data.csv'
+  data = pd.read_csv(file_name)
+  df_task_3 = pd.read_csv(file_name)
   new_netwok_df = df_task_3[['MSISDN/Number', 'Handset Type','TCP DL Retrans. Vol (Bytes)', 'TCP UL Retrans. Vol (Bytes)',\
                          'Avg RTT DL (ms)', 'Avg RTT UL (ms)',\
                          'Avg Bearer TP DL (kbps)', 'Avg Bearer TP UL (kbps)']]
@@ -141,3 +136,5 @@ def run_satisfaction():
 Thus, this shows that the user is satisfied by the Telcco service. \
 The prediction of the developed model on the user satisfaction\
 shows about 83.2% of the user is satisfied")
+  
+
