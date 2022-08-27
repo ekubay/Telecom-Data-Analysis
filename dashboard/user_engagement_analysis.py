@@ -112,7 +112,7 @@ def plot_heatmap(df:pd.DataFrame, title:str, cbar=False)->None:
   sns.heatmap(df, annot=True, cmap='viridis', vmin=0, vmax=1, fmt='.2f', linewidths=.7, cbar=cbar )
   plt.title(title, size=18, fontweight='bold')
   st.pyplot()
-def run_engagement():
+def engagement_analysis():
   file_name = 'data/clean_df_tel1.csv'
   df_clean = pd.read_csv(file_name)
   print(" I am at engahement")
