@@ -2,8 +2,6 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join('..')))
-#sys.path.insert(0, './pages')
-sys.path.insert(0, './tests')
 #import numpy as np
 import pandas as pd
 import streamlit as st
@@ -15,17 +13,14 @@ import dashboard.main as main1
 from dashboard.user_overview_analysis import OverviewAnalysis
 import dashboard.user_engagement_analysis as engage
 import dashboard.user_expriance_analysis as expriance
-import dashboard.user_satisfuction_analysis as satisfy
+from dashboard.user_satisfuction_analysis import SatisfuctionAnalysis
 
 #st.title("Telecomunication Data analysis2")
 #st.sidebar.markdown("# Tellcomunication Data Analysis")
 #page = st.sidebar.selectbox('TellCo Menu', ['Intro', 'Marketing', 'Engagement', 'Experiance', 'Satisfaction'])
 with st.sidebar:
-<<<<<<< HEAD
-=======
-  #'Engagement', 'Experience', 'Satisfaction'
+#'Engagement', 'Experience', 'Satisfaction'
    #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
->>>>>>> 4ebdc20d68cf3cc3376168af8779128e5214371e
   page = option_menu('Menu', ['Main', 'Overview','Engagement', 'Experience', 'Satisfaction'],
                             icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
                             'bi-check-square-fill'], menu_icon="cast", default_index=1)
@@ -33,22 +28,24 @@ with st.sidebar:
   
   
   df = pd.read_csv('clean_df_tel1.csv')
-  #df1 = pd.read_csv('tele-data.csv')
+  file_name = 'data/tel-data.csv'
+
+  df1 = pd.read_csv(file_name)
 
   overview = OverviewAnalysis(df)
   #engagement = engagementAnalysis(df)
   #expriance = exprianceAnalysis(df1)
-  #satisfaction = satisfactionAnalysis(df)
+  satisfaction = SatisfuctionAnalysis(df1)
   #df = pd.read_csv('data/clean_df_tel1.csv')
   if(page == 'Main'):
    main1.run()
   elif(page == 'Overview'):
-   overview.run_overview()
+   overview.overview_analysis()
   elif(page == 'Engagement'):
-    engage.run_engagement()
+    engage.engagement_analysis()
   elif(page == 'Experience'):
-    expriance.run_experiance()
+    expriance.experiance_analysis()
   elif(page == 'Satisfaction'):
-    satisfy.run_satisfaction()
+    satisfy.satisfaction_analysis()
   else:
     main1.run()
