@@ -1,10 +1,10 @@
-import pandas as pd
-import streamlit as st
-import seaborn as sns
-import matplotlib.pyplot as plt
-import script.ploting_fun as plot
+#import matplotlib.pyplot as plt
+#import script.ploting_fun as plot
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+import pandas as pd
+import streamlit as st
+#import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 from sklearn.cluster import KMeans
@@ -15,11 +15,7 @@ class SatisfuctionAnalysis:
   def __init__(self, df):
     self.df_data = df
   def satisfaction_analysis(self):
-    # st.write("## Satisfaction Analysis")
-    # file_name = 'data/clean_df_tel1.csv'
-    # data = pd.read_csv(file_name)
-    #Aggregate per user the following information in the column
-    self.df_data = data.copy()
+
     aggregate = {"Bearer Id": 'count', 'Dur. (ms).1':'sum', 'Total UL (Bytes)': 'sum', 'Total DL (Bytes)': 'sum'}
     aggregation_result = self.df_data.groupby('MSISDN/Number').agg(aggregate)
     aggregation_result.head()
@@ -34,22 +30,23 @@ class SatisfuctionAnalysis:
     scalled_values = min_max_scaler.fit_transform(df_values)
     df_normalized = pd.DataFrame(data=scalled_values, columns=df_sat.columns)
     kmeans = KMeans(n_clusters=3).fit(df_normalized)
-    def null_percentage(df):
-      number_of_rows, number_of_columns = df.shape
-      df_size = number_of_rows * number_of_columns
+    # def null_percentage(df):
+    #   number_of_rows, number_of_columns = df.shape
+    #   df_size = number_of_rows * number_of_columns
       
-      null_size = (df.isnull().sum()).sum()
-      percentage = round((null_size / df_size) * 100, 2)
-      return percentage
+    #   null_size = (df.isnull().sum()).sum()
+    #   percentage = round((null_size / df_size) * 100, 2)
+    #   return percentage
     #Read the cleaned csv file and store it on data
-    file_name = 'data/tel-data.csv'
-    data = pd.read_csv(file_name)
-    df_task_3 = pd.read_csv(file_name)
-    new_netwok_df = df_task_3[['MSISDN/Number', 'Handset Type','TCP DL Retrans. Vol (Bytes)', 'TCP UL Retrans. Vol (Bytes)',\
+    ##file_name = './dashboard/tel-data.csv'
+    #data1 = pd.read_csv(file_name)
+    file_name = 'data/tele-data.csv'
+    df_sat1 = pd.read_csv(file_name)
+    new_netwok_df = df_sat1[['MSISDN/Number', 'Handset Type','TCP DL Retrans. Vol (Bytes)', 'TCP UL Retrans. Vol (Bytes)',\
                           'Avg RTT DL (ms)', 'Avg RTT UL (ms)',\
                           'Avg Bearer TP DL (kbps)', 'Avg Bearer TP UL (kbps)']]
-    null_percentage(new_netwok_df)
-    new_netwok_df.isnull().sum()
+    #null_percentage(new_netwok_df)
+    #new_netwok_df.isnull().sum()
     ## Fill Mising Values
     for col in new_netwok_df.columns:
       if(new_netwok_df[col].isnull().sum()):
@@ -77,7 +74,7 @@ class SatisfuctionAnalysis:
     min_max_scaler = preprocessing.MinMaxScaler()
     network_values = net_cluster_df.values
     scalled_values = min_max_scaler.fit_transform(network_values)
-    df_network_normalized = pd.DataFrame(data=scalled_values, columns=df_task2.columns)
+    df_network_normalized = pd.DataFrame(data=scalled_values, columns=df_sat.columns)
     kmeans = KMeans(n_clusters=3).fit(df_normalized)
     cluster = kmeans.predict(df_network_normalized)
     experiance_df = network_per_user_df.copy()
@@ -134,10 +131,9 @@ class SatisfuctionAnalysis:
     y.shape
     model = LinearRegression().fit(X, y)
     st.write(model.score(X, y))
-    st.write("## Satisfaction Analysis")
-    st.write("Most of the user Telcco is more engaged and experienced on using the services.\
-  Thus, this shows that the user is satisfied by the Telcco service. \
-  The prediction of the developed model on the user satisfaction\
-  shows about 83.2% of the user is satisfied")
+    st.write("### The Satisfaction Analysis")
+    st.write("In this analysis the satisfuction of the customers towards the services deliverd by the company are analysed .\
+       accordingly, The model shows customers are satisfied with the services and the predction model \
+       shows arround 97.9%. The result shows better but it have not checked using other algorithms.")
     
 

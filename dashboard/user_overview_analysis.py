@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 import script.ploting_fun as plot
 #This is User Averview Analysis
-
+st.subheader('overciew page')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 class OverviewAnalysis:
   def __init__(self, df):
@@ -43,4 +43,3 @@ class OverviewAnalysis:
       print(result)
       st.write(result.head())
   st.write(" Overview Analysis outcomes")
-  st.write("overall analysis")
