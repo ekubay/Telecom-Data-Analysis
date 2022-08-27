@@ -17,7 +17,7 @@ class OverviewAnalysis:
   def __init__(self, df):
     self.df_overview = df
 
-  def run_overview(self):
+  def overview_analysis(self):
     st.write("User Overview Analysis")
    
     top_10_handset = self.df_overview.groupby("Handset Type")['MSISDN/Number'].nunique().nlargest(10)

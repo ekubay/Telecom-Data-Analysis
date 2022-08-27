@@ -32,7 +32,7 @@ def plot_bar(df:pd.DataFrame, x_col:str, y_col:str, title:str, xlabel:str, ylabe
   plt.ylabel(ylabel, fontsize=16)
   plt.show()
   st.pyplot()
-def run_experiance():
+def experiance_analysis():
   #Read the csv file
   st.write("## User Experience Analysis")
   file_name = 'data/tele-data.csv'
