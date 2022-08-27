@@ -16,13 +16,13 @@ import dashboard.user_expriance_analysis as expriance
 from dashboard.user_satisfuction_analysis import SatisfuctionAnalysis
 
 
-with st.sidebar:
+#with st.sidebar:
   #'Engagement', 'Experience', 'Satisfaction'
     #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
-  page = option_menu('Menu', ['Main', 'User_Overview','User_Engagement', 'User_Experience', 'User_Satisfaction'],
+page = option_menu('Menu', ['Main', 'User_Overview','User_Engagement', 'User_Experience', 'User_Satisfaction'],
                               icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
                               'bi-check-square-fill'], menu_icon="cast", default_index=1)
-  page
+page
     
     
 df = pd.read_csv('clean_df_tel1.csv')
@@ -37,13 +37,13 @@ satisfy = SatisfuctionAnalysis(df)
     #df = pd.read_csv('data/clean_df_tel1.csv')
 if(page == 'Main'):
   main1.run()
-elif(page == 'Overview'):
+elif(page == 'User_Overview'):
   overview.overview_analysis()
-elif(page == 'Engagement'):
+elif(page == 'User_Engagement'):
   engage.engagement_analysis()
-elif(page == 'Experience'):
+elif(page == 'User_Experience'):
   expriance.experiance_analysis()
-elif(page == 'Satisfaction'):
+elif(page == 'User_Satisfaction'):
   satisfy.satisfaction_analysis()
 else:
  main1.run()
