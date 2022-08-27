@@ -2,8 +2,6 @@
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join('..')))
-#sys.path.insert(0, './pages')
-sys.path.insert(0, './tests')
 #import numpy as np
 import pandas as pd
 import streamlit as st
@@ -15,40 +13,37 @@ import dashboard.main as main1
 from dashboard.user_overview_analysis import OverviewAnalysis
 import dashboard.user_engagement_analysis as engage
 import dashboard.user_expriance_analysis as expriance
-import dashboard.user_satisfuction_analysis as satisfy
+from dashboard.user_satisfuction_analysis import SatisfuctionAnalysis
 
-#st.title("Telecomunication Data analysis2")
-#st.sidebar.markdown("# Tellcomunication Data Analysis")
-#page = st.sidebar.selectbox('TellCo Menu', ['Intro', 'Marketing', 'Engagement', 'Experiance', 'Satisfaction'])
-with st.sidebar:
-<<<<<<< HEAD
-=======
+
+#with st.sidebar:
   #'Engagement', 'Experience', 'Satisfaction'
-   #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
->>>>>>> 4ebdc20d68cf3cc3376168af8779128e5214371e
-  page = option_menu('Menu', ['Main', 'Overview','Engagement', 'Experience', 'Satisfaction'],
-                            icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
-                            'bi-check-square-fill'], menu_icon="cast", default_index=1)
-  page
-  
-  
-  df = pd.read_csv('clean_df_tel1.csv')
-  #df1 = pd.read_csv('tele-data.csv')
+    #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
+page = option_menu('Menu', ['Main', 'User_Overview','User_Engagement', 'User_Experience', 'User_Satisfaction'],
+                              icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
+                              'bi-check-square-fill'], menu_icon="cast", default_index=1)
+page
+    
+    
+df = pd.read_csv('clean_df_tel1.csv')
+    #file_name = 'data/tel-data.csv'
 
-  overview = OverviewAnalysis(df)
-  #engagement = engagementAnalysis(df)
-  #expriance = exprianceAnalysis(df1)
-  #satisfaction = satisfactionAnalysis(df)
-  #df = pd.read_csv('data/clean_df_tel1.csv')
-  if(page == 'Main'):
-   main1.run()
-  elif(page == 'Overview'):
-   overview.run_overview()
-  elif(page == 'Engagement'):
-    engage.run_engagement()
-  elif(page == 'Experience'):
-    expriance.run_experiance()
-  elif(page == 'Satisfaction'):
-    satisfy.run_satisfaction()
-  else:
-    main1.run()
+    #df1 = pd.read_csv(file_name)
+
+overview = OverviewAnalysis(df)
+    #engagement = engagementAnalysis(df)
+    #expriance = exprianceAnalysis(df1)
+satisfy = SatisfuctionAnalysis(df)
+    #df = pd.read_csv('data/clean_df_tel1.csv')
+if(page == 'Main'):
+  main1.run()
+elif(page == 'User_Overview'):
+  overview.overview_analysis()
+elif(page == 'User_Engagement'):
+  engage.engagement_analysis()
+elif(page == 'User_Experience'):
+  expriance.experiance_analysis()
+elif(page == 'User_Satisfaction'):
+  satisfy.satisfaction_analysis()
+else:
+ main1.run()
