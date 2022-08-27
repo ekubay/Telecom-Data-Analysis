@@ -9,7 +9,7 @@ sys.path.append(".")
 # from defaults import *
 
 #from extract_dataframe import read_json
-from script.info_df import DataFrame_Info
+from info_df import DataFrame_Info
 files1 = "./tests/clean_df_tel1.csv"   #put here the path to where you placed the file e.g. ./sampletweets.json. 
 df = pd.read_csv(files1)
 
@@ -30,7 +30,7 @@ class TestDataFrame_Info(unittest.TestCase):
     def test_dataframe_shape(self):
         shape = (150001, 45)
         info=self.df.shape_info()
-        self.assertEqual(self.df.shape_info(), shape)
+        self.assertEqual(self.df.shape_info(),shape)
         print(info)
 
         print ("asserted hello")
