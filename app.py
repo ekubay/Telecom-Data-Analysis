@@ -15,37 +15,35 @@ import dashboard.user_engagement_analysis as engage
 import dashboard.user_expriance_analysis as expriance
 from dashboard.user_satisfuction_analysis import SatisfuctionAnalysis
 
-#st.title("Telecomunication Data analysis2")
-#st.sidebar.markdown("# Tellcomunication Data Analysis")
-#page = st.sidebar.selectbox('TellCo Menu', ['Intro', 'Marketing', 'Engagement', 'Experiance', 'Satisfaction'])
+
 with st.sidebar:
-#'Engagement', 'Experience', 'Satisfaction'
-   #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
-  page = option_menu('Menu', ['Main', 'Overview','Engagement', 'Experience', 'Satisfaction'],
-                            icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
-                            'bi-check-square-fill'], menu_icon="cast", default_index=1)
+  #'Engagement', 'Experience', 'Satisfaction'
+    #'bi-cloud-check-fill', 'bi-briefcase-fill','bi-check-square-fill'], menu_icon="cast", 
+  page = option_menu('Menu', ['Main', 'User_Overview','User_Engagement', 'User_Experience', 'User_Satisfaction'],
+                              icons=['house', 'bi-currency-exchange','bi-cloud-check-fill', 'bi-briefcase-fill',
+                              'bi-check-square-fill'], menu_icon="cast", default_index=1)
   page
-  
-  
-  df = pd.read_csv('clean_df_tel1.csv')
-  file_name = 'data/tel-data.csv'
+    
+    
+df = pd.read_csv('clean_df_tel1.csv')
+    #file_name = 'data/tel-data.csv'
 
-  df1 = pd.read_csv(file_name)
+    #df1 = pd.read_csv(file_name)
 
-  overview = OverviewAnalysis(df)
-  #engagement = engagementAnalysis(df)
-  #expriance = exprianceAnalysis(df1)
-  satisfaction = SatisfuctionAnalysis(df1)
-  #df = pd.read_csv('data/clean_df_tel1.csv')
-  if(page == 'Main'):
-   main1.run()
-  elif(page == 'Overview'):
-   overview.overview_analysis()
-  elif(page == 'Engagement'):
-    engage.engagement_analysis()
-  elif(page == 'Experience'):
-    expriance.experiance_analysis()
-  elif(page == 'Satisfaction'):
-    satisfy.satisfaction_analysis()
-  else:
-    main1.run()
+overview = OverviewAnalysis(df)
+    #engagement = engagementAnalysis(df)
+    #expriance = exprianceAnalysis(df1)
+satisfy = SatisfuctionAnalysis(df)
+    #df = pd.read_csv('data/clean_df_tel1.csv')
+if(page == 'Main'):
+  main1.run()
+elif(page == 'Overview'):
+  overview.overview_analysis()
+elif(page == 'Engagement'):
+  engage.engagement_analysis()
+elif(page == 'Experience'):
+  expriance.experiance_analysis()
+elif(page == 'Satisfaction'):
+  satisfy.satisfaction_analysis()
+else:
+ main1.run()
