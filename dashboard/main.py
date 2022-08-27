@@ -2,8 +2,8 @@ import streamlit as st
 
 def run():
   st.write("Tellecomminication data analysis")
-  st.write("This project is performed to analyse whether Tellco is worth buying and selling.\
-           To perform the project the data extracted from a month of aggregated data on xDR is used.\
-           In this work, data cleaning, transforming, exploration and analysis tasks are performed.\
-           Finally,user overview, engagement, experience and satisfaction analytics is done and the Telcco productivity is predicted")
+  st.write("In this Telecom data analysis, it has been conducted the User Overview Analysis, User Engagement analysis, User Expriance analysis .\
+           and User Satisfuctionanalysis  and based on that insights are identifed. The analysis satrts from data gathering.\
+           and went through data exploration, data cleaning, transforming, dimension reduction and analysis of each catagory has bben made.\
+           Finally,user overview, engagement, experience and satisfaction analysis is performed as well as a predictive regression model is builted.")
   
