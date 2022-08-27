@@ -29,10 +29,10 @@ class OverviewAnalysis:
     plt.xticks(rotation=75)
     st.pyplot()
 
-    top_manufacturers =self.df_overview.groupby("Handset Manufacturer").agg({"MSISDN/Number":'count'}).reset_index()
-    top_3_manufacturers = top_manufacturers.sort_values(by='MSISDN/Number', ascending=False).head(3)
+    top_manufacturer =self.df_overview.groupby("Handset Manufacturer").agg({"MSISDN/Number":'count'}).reset_index()
+    top_3_manufacturers = top_manufacturer.sort_values(by='MSISDN/Number', ascending=False).head(3)
     manufacturers = self.df_overview.groupby("Handset Manufacturer")
-    st.write("The top 5 handsets per top 3 handset manufacturer")
+    st.write("The top 5 handsets type of the top 3 handset manufacturer are ")
 
     # Top five Handset Type in the top 3 manufacturing 
 
@@ -42,4 +42,4 @@ class OverviewAnalysis:
       #print("i am at the overview")
       print(result)
       st.write(result.head())
-  st.write(" Overview Analysis outcomes")
+    st.write(" Overview Analysis outcomes")
