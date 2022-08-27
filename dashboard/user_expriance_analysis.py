@@ -35,7 +35,7 @@ def plot_bar(df:pd.DataFrame, x_col:str, y_col:str, title:str, xlabel:str, ylabe
 def run_experiance():
   #Read the csv file
   st.write("## User Experience Analysis")
-  file_name = 'data/clean_df_tel1.csv'
+  file_name = 'data/tele-data.csv'
   df_expre = pd.read_csv(file_name)
   new_netwok_df = df_expre[['MSISDN/Number', 'Handset Type','TCP DL Retrans. Vol (Bytes)', 'TCP UL Retrans. Vol (Bytes)',\
                          'Avg RTT DL (ms)', 'Avg RTT UL (ms)',\
@@ -43,9 +43,9 @@ def run_experiance():
   #null_percentage(new_netwok_df)
   # new_netwok_df.isnull().sum()
   # ## Fill Mising Values
-  # for col in new_netwok_df.columns:
-  #   if(new_netwok_df[col].isnull().sum()):
-  #     new_netwok_df[col] = new_netwok_df[col].fillna(new_netwok_df[col].mode()[0])
+  for col in new_netwok_df.columns:
+    if(new_netwok_df[col].isnull().sum()):
+      new_netwok_df[col] = new_netwok_df[col].fillna(new_netwok_df[col].mode()[0])
   # null_percentage(new_netwok_df)
   # new_netwok_df.isnull().sum()
   new_netwok_df['Total TCP Retrans'] = new_netwok_df['TCP DL Retrans. Vol (Bytes)'] +\
