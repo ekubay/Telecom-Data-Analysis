@@ -1,2 +1,3 @@
 ** The App file, App.py is in the repository out of this directory.
-** I use to import them and run on the app to buid the dashboard
+** I use to import them and run on the app to buid the dashboard.
+## so the app.py file is one behined theses files 
