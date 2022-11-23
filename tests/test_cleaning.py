@@ -39,4 +39,4 @@ class TestDataFrame_Info(unittest.TestCase):
     #     self.assertEqual(self.df.find_friends_count(), friends_count)
 
 if __name__ == "__main__":
-    # unittest.main()
+    unittest.main()
