@@ -10,7 +10,7 @@ sys.path.append(".")
 
 #from extract_dataframe import read_json
 from info_df import DataFrame_Info
-files1 = "./tests/clean_df_tel1.csv"   #put here the path to where you placed the file e.g. ./sampletweets.json. 
+files1 = "clean_df_tel1.csv"   #put here the path to where you placed the file e.g. ./sampletweets.json. 
 df = pd.read_csv(files1)
 
 
